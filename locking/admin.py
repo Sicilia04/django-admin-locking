@@ -6,9 +6,11 @@ import types
 from django import forms
 from django.conf import settings
 from django.conf.urls import url
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.shortcuts import render
 from django.utils.translation import ugettext as _
+
+from django.utils.safestring import mark_safe
 
 from .models import Lock
 from .settings import DEFAULT_PING_SECONDS, DEFAULT_SHARE_ADMIN_JQUERY
@@ -88,7 +90,7 @@ class LockingAdminMixin(object):
         """List Display column to show lock status"""
         html = ('<span id="locking-{obj_id}" data-object-id="{obj_id}" class="locking-status">'
                 '</span>')
-        return html.format(obj_id=obj.pk)
+        return mark_safe(html.format(obj_id=obj.pk))
 
     is_locked.allow_tags = True
     is_locked.short_description = _('Lock')
