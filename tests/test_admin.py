@@ -1,7 +1,7 @@
 from __future__ import absolute_import, unicode_literals, division
 
 from django.test import TestCase
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
 from selenium import webdriver
