@@ -175,7 +175,7 @@ class LockingAdminMixin(object):
         """Get the URL for the locking admin form js for a given object_id on this admin"""
         return reverse('admin:' + self.locking_admin_changelist_js_url_name)
 
-    def render_change_form(self, request, context, add=False, obj=None, **kwargs):
+    def render_change_form(self, request, context, add=False, change=False, form_url='', obj=None):
         """If editing an existing object, add form locking media to the media context"""
         if not add and getattr(obj, 'pk', False):
             locking_media = forms.Media(js=(self.locking_admin_form_js_url(obj.pk), ))
