@@ -107,7 +107,7 @@ class LockingAdminMixin(object):
 		urls = super(LockingAdminMixin, self).get_urls()
 		locking_urls = [
 			# URL For Locking admin form JavaScript
-			path("locking_form.%s_%s_<int:object_id>.js" % self._model_info,
+			path("locking_form.%s_%s_<uuid:object_id>.js" % self._model_info,
 				 self.admin_site.admin_view(self.locking_admin_form_js),
 				 name=self.locking_admin_form_js_url_name),
 

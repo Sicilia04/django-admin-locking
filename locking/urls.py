@@ -10,5 +10,5 @@ __all__ = ('urlpatterns', )
 urlpatterns = [
     path('api/lock/<app>/<model>/', LockAPIView.as_view(), name='locking-api'),
 
-    path('api/lock/<app>/<model>/<int:object_id>/', LockAPIView.as_view(), name='locking-api'),
+    path('api/lock/<app>/<model>/<uuid:object_id>/', LockAPIView.as_view(), name='locking-api'),
 ]
